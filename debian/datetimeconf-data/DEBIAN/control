@@ -1,0 +1,11 @@
+Package: datetimeconf-data
+Source: datetimeconf
+Version: 1.0
+Architecture: all
+Maintainer: Thanatermesis - <thanatermesis@elivecd.org>
+Installed-Size: 139
+Depends: datetimeconf
+Section: x11
+Priority: optional
+Homepage: http://www.elivecd.org
+Description: Data files for datetimeconf

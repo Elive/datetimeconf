@@ -1,0 +1,12 @@
+Package: datetimeconf-dbg
+Source: datetimeconf
+Version: 1.0
+Architecture: i386
+Maintainer: Thanatermesis - <thanatermesis@elivecd.org>
+Installed-Size: 112
+Depends: datetimeconf-data
+Section: debug
+Priority: extra
+Multi-Arch: same
+Homepage: http://www.elivecd.org
+Description: debugging symbols for datetimeconf

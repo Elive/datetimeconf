@@ -1,0 +1,36 @@
+Source: datetimeconf
+Section: x11
+Priority: optional
+Maintainer: Thanatermesis - <thanatermesis@elivecd.org>
+Build-Depends: debhelper (>= 9), pkg-config, libglib2.0-dev, libpango1.0-dev, libgtk2.0-dev
+Standards-Version: 3.9.2
+Homepage: http://www.elivecd.org
+
+Package: datetimeconf
+Section: x11
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, datetimeconf-data
+Description: datetimeconf
+
+Package: datetimeconf-dbg
+Section: debug
+Architecture: any
+Multi-Arch: same
+Priority: extra
+Depends: ${shlibs:Depends}, ${misc:Depends}, datetimeconf-data
+Description: debugging symbols for datetimeconf
+
+Package: datetimeconf-data
+Section: x11
+Architecture: all
+Depends: datetimeconf, ${misc:Depends}
+Description: Data files for datetimeconf
+
+#Package: libdatetimeconf-dev
+#Section: libdevel
+#Architecture: any
+#Depends: datetimeconf (= ${binary:Version}), ${misc:Depends}, pkg-config
+#Description: headers for the datetimeconf lib
+# #headers and static libraries for lib datetimeconf.

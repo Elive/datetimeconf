@@ -1,0 +1,5 @@
+A simple gtk2 tool for changing the time, date and timezone.
+Based on the Fedora redhat-config-datetime tool written in Python.
+
+Map image comes from redhat-config-datetime, all is licensed under the 
+GNU GPL v2.

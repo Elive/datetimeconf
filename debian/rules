@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+
+DEB_SOURCE_PACKAGE := $(shell dpkg-parsechangelog | grep '^Source:' | cut -f 2 -d ' ')
+version = $(shell dpkg-parsechangelog | awk '/^Version/{print $$2}')
+
+CXXFLAGS += -Wshadow -ffunction-sections -fdata-sections -ffast-math
+CFLAGS += -fvisibility=hidden -Wshadow -ffunction-sections -fdata-sections -ffast-math
+# append these ones if you see compiling errors like  [-Werror=format-security]:
+#-Wno-error=format-security
+LDFLAGS += -fvisibility=hidden -fdata-sections -Wl,--as-needed -Wl,--gc-sections -Wl,-O1 -Wl,-z,defs
+
+%:
+	dh $@
+
+
+configure_flags := \
+	--disable-maintainer-mode \
+	$(NULL)
+
+
+override_dh_auto_configure:
+	NOCONFIGURE=1  ./autogen.sh
+	dh_auto_configure -- $(configure_flags)
+
+
+override_dh_install:
+	dh_install -X.la --fail-missing
+
+override_dh_strip:
+	dh_strip --dbg-package=$(DEB_SOURCE_PACKAGE)-dbg
+
+
+#override_dh_compress:
+#	# do not compress some files
+#	dh_compress -X.c -X.eps -XMakefile -XMakefile.in -XMakefile.am -X.xml
+
+
+
